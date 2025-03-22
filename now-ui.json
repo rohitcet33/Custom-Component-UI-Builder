@@ -1,0 +1,72 @@
+{
+  "components": {
+    "x-26525-custom-table": {
+      "innerComponents": ["now-button"],
+      "uiBuilder": {
+        "associatedTypes": [
+          "global.core",
+          "global.landing-page"
+        ],
+        "label": "My Custom Table V3",
+        "tileIcon": "./tile-icon/generic-tile-icon.svg",
+        "description": "A description of my component",
+        "category": "primitives"
+      },
+      "actions":[
+        {
+          "description":"incident button",
+          "label":"Incident Button",
+          "action":"INCIDENT_BUTTON",
+          "payload":[]
+        },
+        {
+          "description":"Incident Order Button",
+          "label":"Incident Order Button",
+          "action":"ORDER_FILTER_PARENT",
+          "payload":[]
+        }
+      ],
+      "properties":[
+        {
+          "name":"incidentdata",
+          "label":"Incident Object data Lookup",
+          "fileType":"string"
+        }
+      ]
+    },
+    "x-26525-custom-filter": {
+      "innerComponents": ["now-button","now-dropdown"],
+      "uiBuilder": {
+        "associatedTypes": [
+          "global.core",
+          "global.landing-page"
+        ],
+        "label": "My Custom Filter V1",
+        "tileIcon": "./tile-icon/generic-tile-icon.svg",
+        "description": "A description of my component",
+        "category": "primitives"
+      },
+      "actions":[
+        {
+          "description":"incident Filter",
+          "label":"Incident Filter",
+          "action":"INCIDENT_FILTER",
+          "payload":[]
+        }
+      ],
+      "properties":[
+        {
+          "name":"title",
+          "label":"Table title",
+          "fileType":"string"
+        },
+        {
+          "name":"incidentstate",
+          "label":"State Object data Lookup",
+          "fileType":"string"
+        }
+      ]
+    }
+  },
+  "scopeName": "x_26525_26525_cu_0"
+}

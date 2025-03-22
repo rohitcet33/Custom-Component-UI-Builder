@@ -1,0 +1,12 @@
+@import '@servicenow/sass-kit/host';
+//@import '~bootstrap/scss/bootstrap';
+
+.sortorder:after {
+    content: '\25b2';
+  } 
+  .sortorder.descending:after {
+     content: '\25bc';
+  }
+  .activeorder{
+    color: red;
+  }

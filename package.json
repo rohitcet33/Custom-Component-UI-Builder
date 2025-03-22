@@ -1,0 +1,29 @@
+{
+  "name": "@26525/custom-table",
+  "version": "0.0.1",
+  "private": false,
+  "description": "Democomp",
+  "keywords": [
+    "ServiceNow",
+    "Next Experience UI Component",
+    "@26525/custom-table"
+  ],
+  "readme": "./README.md",
+  "engines": {
+    "node": ">=22"
+  },
+  "module": "src/index.js",
+  "dependencies": {
+    "@servicenow/now-button": "^19.8.2-ecd",
+    "@servicenow/now-dropdown": "^19.8.2-ecd",
+    "@servicenow/sass-kit": "latest",
+    "@servicenow/ui-core": "24.1.1",
+    "@servicenow/ui-renderer-snabbdom": "24.1.1",
+    "bootstrap": "^4.6.2"
+  },
+  "devDependencies": {
+    "@babel/runtime": "7.25.7",
+    "ajv": "^6.12.6",
+    "sass": "1.53.0"
+  }
+}
