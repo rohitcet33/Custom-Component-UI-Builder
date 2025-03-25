@@ -4,15 +4,24 @@ import '@servicenow/now-button';
 import '@servicenow/now-dropdown';
 import styles from './styles.scss';
 
-
 const view = (state, {updateState,dispatch}) => {
 	//var title = state.properties.title;
 	const {properties:{title}} = state;
 	const {properties:{incidentstate}} = state;
+	const serachincident = (e)=>{
+		dispatch('INCIDENT_NUMBER_FILTER',{data:e.target.value});
+	}
 	return (
-	<div>  
-		<h2>{title}</h2>
-		<now-dropdown placeholder="Select" items={incidentstate} />
+	<div className="container">  
+		<div className="box">
+			<h2>{title}</h2>
+		</div>
+		<div className="box" styles={"margin-top:30px"}>
+			<now-dropdown placeholder="Select" items={incidentstate} />
+		</div>
+		<div className="box">
+			<input type="text" on-change={(e)=>serachincident(e)} id="numbersearch" placeholder="Put Number to search"/>
+		</div>
 	</div>
 );
 }

@@ -3,12 +3,16 @@ import snabbdom from '@servicenow/ui-renderer-snabbdom';
 import '@servicenow/now-button';
 import styles from './styles.scss';
 import './x-26525-custom-table-order-child';
-
+import './x-26525-custom-table-pagination-child';
+import { incidetdemodata } from '../demodata';
 const view = (state, {updateState,dispatch}) => {
 	//var title = state.properties.title;
 	const {properties:{incidentdata}} = state;
 	const {orderfield} = state;
 	const {odertype} = state;
+	const {properties:{maxpage}} = state;
+	const {pageIndex} = state;
+
 	const incidentbutton = (rec) =>{
 		dispatch("INCIDENT_BUTTON",{data:rec})
 	}
@@ -35,6 +39,7 @@ const view = (state, {updateState,dispatch}) => {
 		})}
 		
 		</table>
+		<x-26525-custom-table-pagination-child></x-26525-custom-table-pagination-child>
 	</div>
 );
 }
@@ -50,10 +55,18 @@ createCustomElement('x-26525-custom-table', {
 			});
 			coeffects.dispatch("ORDER_FILTER_PARENT",{odertype: coeffects.action.payload.orderFieldType,
 				orderfield: coeffects.action.payload.orderField});
+		},
+		"PAGINATION_CUSTOM": (coeffects)=>{
+			const pagenewindex = coeffects.action.payload.order == 'right'? parseInt(coeffects.state.pageIndex) + parseInt(coeffects.properties.maxpage):parseInt(coeffects.state.pageIndex) - parseInt(coeffects.properties.maxpage);
+			coeffects.updateState({
+				pageIndex: pagenewindex
+			})
+			coeffects.dispatch("PAGINATION_CUSTOM_PARENT",{data:pagenewindex});
 		}
 	},initialState:{
 		"odertype":"ac",
-		"orderfield":"number"
+		"orderfield":"number",
+		"pageIndex": 0
 	},
-	styles, properties:{"incidentdata":{default:[{"_row_data":{"displayValue":"INC0000060","uniqueValue":"1c741bd70b2322007518478d83673af3"},"short_description":{"value":"demo","displayValue":"demo"},"number":{"value":"INC0000060","displayValue":"INC0000060"},"state":{"value":"7","displayValue":"Closed"}}]}}
+	styles, properties:{"incidentdata":{default:incidetdemodata},"maxpage":{default:8}}
 });
