@@ -82,6 +82,19 @@
           "fileType":"string"
         }
       ]
+    },
+    "x-26525-custom-product-api": {
+      "innerComponents": ["now-button","now-dropdown"],
+      "uiBuilder": {
+        "associatedTypes": [
+          "global.core",
+          "global.landing-page"
+        ],
+        "label": "My Custom Product",
+        "tileIcon": "./tile-icon/generic-tile-icon.svg",
+        "description": "My Custom Product",
+        "category": "primitives"
+      }
     }
   },
   "scopeName": "x_26525_26525_cu_0"

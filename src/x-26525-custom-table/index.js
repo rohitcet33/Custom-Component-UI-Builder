@@ -21,6 +21,7 @@ const view = (state, {updateState,dispatch}) => {
 		<table id="customers">
 		<tr>
 		<th>Number <x-26525-custom-table-order-child orderKey="number" curtfield={orderfield} orderType={odertype}></x-26525-custom-table-order-child></th>
+		<th>Caller <x-26525-custom-table-order-child orderKey="caller_id" curtfield={orderfield} orderType={odertype}></x-26525-custom-table-order-child></th>
 		<th>Short Description <x-26525-custom-table-order-child orderKey="short_description" curtfield={orderfield} orderType={odertype}></x-26525-custom-table-order-child></th>
 		<th>State <x-26525-custom-table-order-child orderKey="state" curtfield={orderfield} orderType={odertype}></x-26525-custom-table-order-child></th>
 		<th>Action</th>
@@ -29,6 +30,7 @@ const view = (state, {updateState,dispatch}) => {
 			return (
 			<tr>
 			<td>{rec.number.value}</td>
+			<td>{rec.caller_id.displayValue}</td>
 			<td>{rec.short_description.value}</td>
 			<td>{rec.state.displayValue}</td>
 			<td><now-button label="Resolve" variant="primary" on-click={()=>{
